@@ -11,10 +11,10 @@ function init(options,cb){
             lcd=1;
             lcd_module=options.lcd;
         }
-        cb(err,"Ready");
+        cb(err,"Logger Ready");
     }
     else{
-        cb(err,"Ready");
+        cb(err,"Logger Ready");
     }
 }
 
