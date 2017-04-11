@@ -3,6 +3,8 @@ module.exports.init=init;
 
 var lcd=0;
 var lcd_module;
+var lcdconfig;
+var history=[];
 var err=null;
 
 function init(options,cb){
@@ -10,6 +12,9 @@ function init(options,cb){
         if(options.lcd){
             lcd=1;
             lcd_module=options.lcd;
+            if(options.lcdconfig){
+                lcdconfig=options.lcdconfig;
+            }
         }
         cb(err,"Logger Ready");
     }
@@ -21,7 +26,25 @@ function init(options,cb){
 function log(message){
     console.log(message);
     if(lcd){
-        lcd_module.log(message);
+        if(lcdconfig){
+            if(lcdconfig.lines){
+                history.push(message);
+                if(history.length>lcdconfig.lines){
+                    history.pop();
+                }
+                var output="";
+                for(var i=0;i<history.lines;i++){
+                    output=history[i]+"\n";
+                }
+                lcd_module.log(output);
+            }
+            else{
+                lcd_module.log(message);
+            }
+        }
+        else{
+            lcd_module.log(message);
+        }
     };
 }
 
