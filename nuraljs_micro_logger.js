@@ -28,10 +28,10 @@ function log(message){
     if(lcd){
         if(lcdconfig){
             if(lcdconfig.lines){
-                console.log(history);
+                //console.log(history);
                 history.push(message);
                 if(history.length>lcdconfig.lines){
-                    history.pop();
+                    history.shift();
                 }
                 var output="";
                 for(var i=0;i<history.length;i++){
