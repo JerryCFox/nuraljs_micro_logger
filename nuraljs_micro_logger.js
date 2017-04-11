@@ -30,7 +30,7 @@ function log(message){
             if(lcdconfig.lines){
                 history.push(message);
                 if(history.length>lcdconfig.lines){
-                    history.pop();
+                    //history.pop();
                 }
                 var output="";
                 for(var i=0;i<history.lines;i++){
