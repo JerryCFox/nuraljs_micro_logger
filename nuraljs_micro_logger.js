@@ -31,10 +31,10 @@ function log(message){
                 console.log(history);
                 history.push(message);
                 if(history.length>lcdconfig.lines){
-                    //history.pop();
+                    history.pop();
                 }
                 var output="";
-                for(var i=0;i<history.lines;i++){
+                for(var i=0;i<history.length;i++){
                     output+=history[i]+"\n";
                 }
                 lcd_module.log(output);
