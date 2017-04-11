@@ -28,6 +28,7 @@ function log(message){
     if(lcd){
         if(lcdconfig){
             if(lcdconfig.lines){
+                console.log(history);
                 history.push(message);
                 if(history.length>lcdconfig.lines){
                     //history.pop();
