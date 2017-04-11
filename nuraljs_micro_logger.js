@@ -34,7 +34,7 @@ function log(message){
                 }
                 var output="";
                 for(var i=0;i<history.lines;i++){
-                    output=history[i]+"\n";
+                    output+=history[i]+"\n";
                 }
                 lcd_module.log(output);
             }
